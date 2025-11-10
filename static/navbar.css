@@ -1,0 +1,208 @@
+header {
+    width: 100%;
+    height: 89px;
+    /*--- Эффект стекла ---*/
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* ------------ */
+    display: flex;
+    align-items: center;
+    position:absolute;
+}  
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1323px;
+    width: 67%;
+    margin: 0 auto;
+    
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 1223px) {
+    .menu {
+       width: 85%; 
+    }
+    
+}
+
+.navbar-item:not(:last-child) {
+    margin-right: auto;
+}
+
+.navbar-link {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 110%;
+    color: #000000;
+
+}
+
+
+
+.header-burger {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .menu {
+        width: 95vw;
+    }
+
+    .header-burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        margin-left: auto;
+        z-index: 5;
+    }
+
+    .header-burger::before,
+    .header-burger::after {
+        content: '';
+        background-color: #000000;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        border-radius: 2px;
+        transition: all 0.35s ease 0s;
+    }
+
+    .header-burger span {
+        content: '';
+        position: absolute;
+        background-color: #000000;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        top: 9px;
+        border-radius: 2px;
+        transition: all 0.35s ease 0s;
+    }
+
+    .header-burger::before {
+        top: 0;
+    }
+
+    .header-burger::after {
+        bottom: 0;
+    }
+
+    .header-burger.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+        
+    }
+
+    .header-burger.active span {
+        transform: scale(0);
+    }
+
+    .header-burger.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+        
+    }
+
+    header {
+        position: fixed;
+        height: 65px;
+        z-index: 1000;
+    }
+
+    header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        
+    }
+
+
+
+    .menu-list {
+        position: fixed;
+        top: 65px;
+        width: 55%;
+        height: 100%;
+        /*--- ЭФФЕКТ СТЕКЛА ---*/
+        background-color: rgba(255, 255, 255, 0.4); /* Более прозрачный фон для лучшего размытия */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* ----------------------- */
+        flex-direction: column;
+        gap: 15px;
+        z-index: 2;
+        align-items: start;
+        padding-top: 47px;
+        padding-left: 29px;
+        padding-bottom: 35px;
+        right: -100%;
+        transition: all 0.45s ease 0s;
+    }
+    
+    .menu-list.active {
+        top: 65px;
+        right: 0;
+        
+    }
+
+    .menu-list li {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .menu {
+        
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .menu-list {
+        align-items: center;
+        
+        margin-left: auto;
+    }
+}
+
+.menu-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+.menu-list li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.menu-list li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 105%;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-list li:hover::after {
+    transform: scaleX(1);
+}
